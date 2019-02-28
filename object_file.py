@@ -7,3 +7,8 @@ class Image:
 
     def __str__(self):
         return self.orientation + ' ' + str(self.n_tags) + ' ' + ' '.join(i for i in self.tag_arr)
+
+class Slide:
+    def __init__(self, total):
+        self.total_slides = total
+        self.slide_desc = []
