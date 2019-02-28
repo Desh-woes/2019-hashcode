@@ -7,6 +7,7 @@ total_photos = int(f.readline())
 # print(total_photos)
 horizontal_images_arr = {}
 vertical_images_arr = {}
+image_list = []
 list_index = 0
 for i in range(total_photos):
     read_list = f.readline().split()
@@ -18,6 +19,7 @@ for i in range(total_photos):
     else:
         vertical_images_arr[list_index] = new_object
     list_index += 1
+    image_list.append(new_object)
 
 # for image in images_arr:
 #     print(image)
@@ -53,6 +55,7 @@ while count < total_slides:
             vertical_images_arr[y].used = True
     new_slide.slide_desc.append(new_arr)
     count += 1
+
 
 for i in range(total_slides):
     output_element = new_slide.slide_desc[i]
