@@ -1,5 +1,5 @@
 from object_file import *
-filename = 'e_shiny_selfies.txt'
+filename = 'a_example.txt'
 f = open('files/'+filename, 'r')
 
 total_photos = int(f.readline())
@@ -44,8 +44,8 @@ count = 0
 while count < total_slides:
     for y in horizontal_images_arr:
         if not horizontal_images_arr[y].used:
-            new_silde = Indiv_slide
-            new_slide.slide_desc.append(y)
+            new_slide2 = Indiv_slide(y, horizontal_images_arr[y])
+            new_slide.slide_desc.append(new_slide2)
             horizontal_images_arr[y].used = True
             count += 1
 
@@ -54,13 +54,16 @@ while count < total_slides:
         if not vertical_images_arr[y].used and len(new_arr) < 2:
             new_arr.append(y)
             vertical_images_arr[y].used = True
-    new_slide.slide_desc.append(new_arr)
+    new_slide2 = Indiv_slide(new_arr, vertical_images_arr[new_arr[0]], vertical_images_arr[new_arr[1]])
+    new_slide.slide_desc.append(new_slide2)
     count += 1
 
+for x in new_slide.slide_desc:
+    print(x)
 
-for i in range(total_slides):
-    output_element = new_slide.slide_desc[i]
-    if not isinstance(output_element, list):
-        output.write(str(output_element) + '\n')
-    else:
-        output.write(' '.join(str(i) for i in output_element) + '\n')
+# for i in range(total_slides):
+#     output_element = new_slide.slide_desc[i]
+#     if not isinstance(output_element, list):
+#         output.write(str(output_element) + '\n')
+#     else:
+#         output.write(' '.join(str(i) for i in output_element) + '\n')

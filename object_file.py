@@ -12,17 +12,23 @@ class Slide:
     def __init__(self, total):
         self.total_slides = total
         self.slide_desc = []
+
+
 class Indiv_slide:
-    def __init__(self,imageA,imageB=None):
-        self.tags=set(imageA.tag_arr)
+    def __init__(self,index, imageA, imageB=None):
+        self.index = index
+        self.tags = set(imageA.tag_arr)
         if imageB is not None:
             self.tags.update(imageB.tag_arr)
 
-def score(slide_A,slide_B):
-    common=slide_A.tags.intersection(slide_B.tags)
-    in_A=slide_A.tags.difference(slide_B.tags)
-    in_B = slide_B.tags.difference(slide_A.tags)
-    arr=[len(common),len(in_A),len(in_B)]
-    score=min(arr)
-    return score
+    def get_index(self):
+        return self.index
+
+    def score(self, slide_B):
+        common = self.tags.intersection(slide_B.tags)
+        in_A = self.tags.difference(slide_B.tags)
+        in_B = slide_B.tags.difference(self.tags)
+        arr = [len(common), len(in_A), len(in_B)]
+        score = min(arr)
+        return score
 
