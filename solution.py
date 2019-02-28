@@ -42,6 +42,7 @@ while count < total_slides:
     for y in images_arr:
         if not y.used and y.orientation == "V" and len(new_arr) < 2:
             new_arr.append(images_arr.index(y))
+            y.used = True
     new_slide.slide_desc.append(new_arr)
     count += 1
 
