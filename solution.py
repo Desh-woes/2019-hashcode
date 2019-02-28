@@ -1,4 +1,4 @@
-from object_file import Image, Slide
+from object_file import *
 filename = 'e_shiny_selfies.txt'
 f = open('files/'+filename, 'r')
 
@@ -42,6 +42,7 @@ count = 0
 while count < total_slides:
     for y in horizontal_images_arr:
         if not horizontal_images_arr[y].used:
+            new_silde = Indiv_slide
             new_slide.slide_desc.append(y)
             horizontal_images_arr[y].used = True
             count += 1
