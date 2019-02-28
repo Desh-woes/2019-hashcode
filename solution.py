@@ -1,5 +1,5 @@
 from object_file import *
-filename = 'c_memorable_moments.txt'
+filename = 'b_lovely_landscapes.txt'
 f = open('files/'+filename, 'r')
 
 total_photos = int(f.readline())
@@ -48,15 +48,17 @@ while count < total_slides:
             new_slide.slide_desc.append(new_slide2)
             horizontal_images_arr[y].used = True
             count += 1
-
-    new_arr = []
-    for y in vertical_images_arr:
-        if not vertical_images_arr[y].used and len(new_arr) < 2:
-            new_arr.append(y)
-            vertical_images_arr[y].used = True
-    new_slide2 = Indiv_slide(new_arr, vertical_images_arr[new_arr[0]], vertical_images_arr[new_arr[1]])
-    new_slide.slide_desc.append(new_slide2)
-    count += 1
+            
+                
+    if count != total_slides:
+        new_arr = []
+        for y in vertical_images_arr:
+            if not vertical_images_arr[y].used and len(new_arr) < 2:
+                new_arr.append(y)
+                vertical_images_arr[y].used = True
+        new_slide2 = Indiv_slide(new_arr, vertical_images_arr[new_arr[0]], vertical_images_arr[new_arr[1]])
+        new_slide.slide_desc.append(new_slide2)
+        count += 1
 
 # for x in new_slide.slide_desc:
 #     print(x)
