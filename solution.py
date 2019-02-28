@@ -61,9 +61,29 @@ while count < total_slides:
 for x in new_slide.slide_desc:
     print(x)
 
-# for i in range(total_slides):
-#     output_element = new_slide.slide_desc[i]
-#     if not isinstance(output_element, list):
-#         output.write(str(output_element) + '\n')
-#     else:
-#         output.write(' '.join(str(i) for i in output_element) + '\n')
+
+def sortSlideList(slide_list):
+    highest_score = 0
+    # temp = 0
+    highest_index = 0
+
+    for i in range(len(slide_list)):
+        if i + 1 < len(slide_list) - 1:
+            for j in range(i + 1, len(slide_list)):
+                new_score = slide_list[i].score(slide_list[j])
+                if new_score > highest_score:
+                    highest_score = new_score
+                    highest_index = j
+
+            temp = slide_list[i + 1]
+            slide_list[i + 1] = slide_list[highest_index]
+            slide_list[highest_index] = temp
+
+sortSlideList(new_slide.slide_desc)
+
+for i in range(total_slides):
+    output_element = new_slide.slide_desc[i].get_index()
+    if not isinstance(output_element, list):
+        output.write(str(output_element) + '\n')
+    else:
+        output.write(' '.join(str(i) for i in output_element) + '\n')

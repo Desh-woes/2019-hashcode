@@ -32,3 +32,4 @@ class Indiv_slide:
         score = min(arr)
         return score
 
+
