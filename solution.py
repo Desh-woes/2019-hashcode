@@ -1,5 +1,5 @@
 from object_file import Image, Slide
-filename = 'd_pet_pictures.txt'
+filename = 'e_shiny_selfies.txt'
 f = open('files/'+filename, 'r')
 
 total_photos = int(f.readline())
