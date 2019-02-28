@@ -1,5 +1,5 @@
 from object_file import *
-filename = 'a_example.txt'
+filename = 'c_memorable_moments.txt'
 f = open('files/'+filename, 'r')
 
 total_photos = int(f.readline())
@@ -58,9 +58,8 @@ while count < total_slides:
     new_slide.slide_desc.append(new_slide2)
     count += 1
 
-for x in new_slide.slide_desc:
-    print(x)
-
+# for x in new_slide.slide_desc:
+#     print(x)
 
 def sortSlideList(slide_list):
     highest_score = 0
@@ -78,6 +77,7 @@ def sortSlideList(slide_list):
             temp = slide_list[i + 1]
             slide_list[i + 1] = slide_list[highest_index]
             slide_list[highest_index] = temp
+
 
 sortSlideList(new_slide.slide_desc)
 
