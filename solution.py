@@ -1,0 +1,1 @@
+f = open('files/a_example.txt', 'r')
