@@ -9,6 +9,7 @@ horizontal_images_arr = {}
 vertical_images_arr = {}
 image_list = []
 list_index = 0
+
 for i in range(total_photos):
     read_list = f.readline().split()
     orientation = read_list[0]
